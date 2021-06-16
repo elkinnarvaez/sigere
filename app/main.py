@@ -17,3 +17,6 @@ def reyes():
 @app.route('/elkin')
 def elkin():
   return "Elkin"
+@app.route('/rengifo')
+def po():
+  return "Tengo un osito en el parqueadero"
