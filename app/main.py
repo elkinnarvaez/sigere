@@ -13,3 +13,7 @@ def root():
 @app.route('/reyes')
 def reyes():
   return "jejeje"
+
+@app.route('/elkin')
+def elkin():
+  return "Elkin"
