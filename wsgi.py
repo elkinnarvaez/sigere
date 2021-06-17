@@ -1,4 +1,5 @@
-from app.main import app
+from app.app import app, db
 
 if __name__ == "__main__":
-  app.run(debug=True)
+    db.create_all()
+    app.run(debug=True)
