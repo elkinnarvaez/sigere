@@ -12,6 +12,7 @@
         - https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
         - https://www.postgresqltutorial.com/postgresql-show-tables/
         - https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-python
+        - https://dba.stackexchange.com/questions/58312/how-to-get-the-name-of-the-current-database-from-within-postgresql
     * Python Flask
         - https://realpython.com/flask-blueprint/
         - https://flask.palletsprojects.com/en/2.0.x/blueprints/
