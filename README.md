@@ -12,3 +12,4 @@
     * Python Flask
         - https://realpython.com/flask-blueprint/
         - https://flask.palletsprojects.com/en/2.0.x/blueprints/
+        - https://flask.palletsprojects.com/en/1.1.x/patterns/templateinheritance/
