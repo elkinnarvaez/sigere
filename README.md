@@ -20,3 +20,5 @@
         - https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91
         - https://flask-sqlalchemy.palletsprojects.com/en/2.x/
         - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
+    * AWS S3
+        - https://devcenter.heroku.com/articles/s3-upload-python
