@@ -10,6 +10,8 @@
         - https://www.postgresqltutorial.com/psql-commands/
         - https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm
         - https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
+        - https://www.postgresqltutorial.com/postgresql-show-tables/
+        - https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-python
     * Python Flask
         - https://realpython.com/flask-blueprint/
         - https://flask.palletsprojects.com/en/2.0.x/blueprints/
