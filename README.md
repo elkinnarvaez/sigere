@@ -9,7 +9,11 @@
     * PostgreSQL
         - https://www.postgresqltutorial.com/psql-commands/
         - https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm
+        - https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
     * Python Flask
         - https://realpython.com/flask-blueprint/
         - https://flask.palletsprojects.com/en/2.0.x/blueprints/
         - https://flask.palletsprojects.com/en/1.1.x/patterns/templateinheritance/
+        - https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91
+        - https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+        - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
