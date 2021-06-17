@@ -41,3 +41,10 @@ def add_header(response):
 def index():
     args = dict()
     return render_template("index.html", args = args)
+
+@app.route('/test')
+def test():
+    new_user = app.users("Elkin")
+    app.db.session.add(new_user)
+    app.db.session.commit()
+    return "<h1>Testing...</h1>"
