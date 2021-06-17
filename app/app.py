@@ -44,7 +44,7 @@ def index():
 
 @app.route('/test')
 def test():
-    new_user = app.users("Elkin")
-    app.db.session.add(new_user)
-    app.db.session.commit()
+    new_user = users("Elkin")
+    db.session.add(new_user)
+    db.session.commit()
     return "<h1>Testing...</h1>"
