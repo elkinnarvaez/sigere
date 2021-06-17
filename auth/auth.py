@@ -11,7 +11,9 @@ auth = Blueprint('auth', __name__, url_prefix='/auth', template_folder='template
 @auth.route('/login')
 def login():
     args = dict()
-    new_user = app.users("Franklin")
-    app.db.session.add(new_user)
-    app.db.session.commit()
     return render_template("auth/login.html", args = args)
+
+@auth.route('/signup')
+def registrarse():
+    args = dict()
+    return render_template("auth/signup.html", args = args)

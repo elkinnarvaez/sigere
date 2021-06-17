@@ -44,4 +44,5 @@ def add_header(response):
 @app.route('/')
 def index():
     args = dict()
-    return render_template("index.html", args = args)
+    return redirect(url_for("auth.login"))
+    # return render_template("index.html", args = args)

@@ -22,3 +22,5 @@
         - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
     * AWS S3
         - https://devcenter.heroku.com/articles/s3-upload-python
+    * Login templates
+        - https://colorlib.com/wp/cat/login-forms/
