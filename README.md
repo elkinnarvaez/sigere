@@ -24,3 +24,5 @@
         - https://devcenter.heroku.com/articles/s3-upload-python
     * Login templates
         - https://colorlib.com/wp/cat/login-forms/
+    * Templates
+        - https://www.w3schools.com/w3css/tryw3css_templates_analytics.htm

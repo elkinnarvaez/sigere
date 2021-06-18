@@ -8,10 +8,28 @@ import app.app as app
 
 auth = Blueprint('auth', __name__, url_prefix='/auth', template_folder='templates', static_folder='static')
 
-@auth.route('/login')
+@auth.route('/logout', methods=["POST", "GET"])
+def logout():
+    session["email_username"] = None
+    session["password"] = None
+    return redirect(url_for("auth.login"))
+
+@auth.route('/login', methods=["POST", "GET"])
 def login():
     args = dict()
     args["session"] = dict(session)
+    if request.method == "POST":
+        if(request.form["signin"] == "Entrar"):
+            email_username = request.form["email_username"]
+            password = request.form["password"]
+            user = app.Users.query.filter((app.Users.password == password) & ((app.Users.email == email_username) | (app.Users.username == email_username))).first()
+            if(user != None):
+                session["email_username"] = email_username
+                session["password"] = password
+            else:
+                flash("Las credenciales son invalidas.")
+    if(session["email_username"] != None):
+        return redirect(url_for("home"))
     return render_template("auth/login.html", args = args)
 
 @auth.route('/signup', methods=["POST", "GET"])
@@ -38,7 +56,7 @@ def signup():
                 flash("Las contraseñas ingresadas no coinciden.")
                 add_user = False
             if(names == "" or lastnames == "" or email == "" or username == "" or password == "" or repeated_password == "" or job == "" or company == "" or city == ""):
-                flash("Campos faltantes.")
+                flash("Algunos campos faltantes.")
                 add_user = False
             if(add_user):
                 session["pre_login_email"] = email
@@ -48,4 +66,6 @@ def signup():
                 app.db.session.commit()
                 flash("Te has registrado satisfactoriamente.")
                 return redirect(url_for("auth.login"))
+    if(session["email_username"] != None):
+        return redirect(url_for("home"))
     return render_template("auth/signup.html", args = args)

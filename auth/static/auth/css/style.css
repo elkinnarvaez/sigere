@@ -204,3 +204,7 @@ h2 {
   height: 30em;
   overflow-y: auto;
 }
+
+.cursor-transition:hover{
+  cursor: text;
+}
