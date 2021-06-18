@@ -24,12 +24,28 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Tables definition
-class users(db.Model):
+class Users(db.Model):
     _id = db.Column("id", db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    
-    def __init__(self, name):
-        self.name = name
+    names = db.Column(db.String(150))
+    lastnames = db.Column(db.String(150))
+    email = db.Column(db.String(150))
+    username = db.Column(db.String(150))
+    password = db.Column(db.String(150))
+    job = db.Column(db.String(150))
+    company = db.Column(db.String(150))
+    city = db.Column(db.String(150))
+    profile_picture = db.Column(db.String(800))
+
+    def __init__(self, names, lastnames, email, username, password, job, company, city, profile_picture):
+        self.names = names
+        self.lastnames = lastnames
+        self.email = email
+        self.username = username
+        self.password = password
+        self.job = job
+        self.company = company
+        self.city = city
+        self.profile_picture = profile_picture
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -43,6 +59,5 @@ def add_header(response):
 
 @app.route('/')
 def index():
-    args = dict()
+    session["pre_login_email"] = None
     return redirect(url_for("auth.login"))
-    # return render_template("index.html", args = args)
