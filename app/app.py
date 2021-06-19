@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #     'connect_args': {'sslmode':'require'}
 # }
 
-RUNNING_LOCAL = os.environ['RUNNING_LOCAL']
+RUNNING_LOCAL = True if os.environ['RUNNING_LOCAL']=='yes' else False
 
 db = SQLAlchemy(app)
 
@@ -66,6 +66,7 @@ def index():
     args = dict()
     args["session"] = dict(session)
     if("email" not in session or session["email"] == None):
+        flash("Por favor inicie sesión.")
         return redirect(url_for("auth.login"))
     return render_template("app/index.html", args = args)
 
@@ -169,3 +170,7 @@ def tooltips():
 @app.route('/typography')
 def typography():
     return render_template("app/typography.html")
+
+@app.route('/files')
+def files():
+    return render_template("app/files.html")
