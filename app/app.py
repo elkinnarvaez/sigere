@@ -61,17 +61,109 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
-@app.route('/home')
-def home():
+@app.route('/index')
+def index():
     args = dict()
     args["session"] = session
-    return render_template("home.html", args = args)
+    return render_template("app/index.html", args = args)
 
 @app.route('/')
-def index():
+def login_redirect():
     # session.permanent = True
     session["pre_login_email"] = None
     session["RUNNING_LOCAL"] = RUNNING_LOCAL
     session["email_username"] = None
     session["password"] = None
     return redirect(url_for("auth.login"))
+
+@app.route('/f404')
+def f404():
+    return render_template("app/404.html")
+
+@app.route('/accordion')
+def accordion():
+    return render_template("app/accordion.html")
+
+@app.route('/base')
+def base():
+    return render_template("app/base.html")
+
+@app.route('/basic_table')
+def basic_table():
+    return render_template("app/basic-table.html")
+
+@app.route('/bootstrap_ui')
+def bootstrap_ui():
+    return render_template("app/bootstrap-ui.html")
+
+@app.route('/box_shadow')
+def box_shadow():
+    return render_template("app/box-shadow.html")
+
+@app.route('/button')
+def button():
+    return render_template("app/button.html")
+
+@app.route('/color')
+def color():
+    return render_template("app/color.html")
+
+@app.route('/float_chart')
+def float_chart():
+    return render_template("app/float-chart.html")
+
+@app.route('/forgot_password')
+def forgot_password():
+    return render_template("app/forgot-password.html")
+
+@app.route('/form_elements_advance')
+def form_elements_advance():
+    return render_template("app/form-elements-advance.html")
+
+@app.route('/form_elements_bootstrap')
+def form_elements_bootstrap():
+    return render_template("app/form-elements-bootstrap.html")
+
+@app.route('/label_badge')
+def label_badge():
+    return render_template("app/label-badge.html")
+
+@app.route('/light_box')
+def light_box():
+    return render_template("app/light-box.html")
+
+@app.route('/login1')
+def login1():
+    return render_template("app/login1.html")
+
+@app.route('/morris_chart')
+def morris_chart():
+    return render_template("app/morris-chart.html")
+
+@app.route('/notification')
+def notification():
+    return render_template("app/notification.html")
+
+@app.route('/panels_wells')
+def panels_wells():
+    return render_template("app/panels-wells.html")
+
+@app.route('/register1')
+def register1():
+    return render_template("app/register1.html")
+
+@app.route('/sample_page')
+def sample_page():
+    return render_template("app/sample-page.html")
+
+@app.route('/tabs')
+def tabs():
+    return render_template("app/tabs.html")
+
+@app.route('/tooltips')
+def tooltips():
+    return render_template("app/tooltips.html")
+
+@app.route('/typography')
+def typography():
+    return render_template("app/typography.html")

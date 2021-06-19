@@ -25,4 +25,15 @@
     * Login templates
         - https://colorlib.com/wp/cat/login-forms/
     * Templates
+        - https://startbootstrap.com/templates
         - https://www.w3schools.com/w3css/tryw3css_templates_analytics.htm
+        - https://bootstrapmade.com/demo/iPortfolio/
+        - https://startbootstrap.com/template/sb-admin
+        - https://themewagon.com/themes/free-bootstrap-5-html5-admin-dashboard-template-mazer/
+
+        - https://themewagon.com/themes/
+        - https://startbootstrap.com/theme/sb-admin-2
+        - https://themewagon.com/themes/free-bootstrap-4-html-5-admin-dashboard-quantum-able/
+        - https://themewagon.com/themes/free-bootstrap4-admin-dashboard-mega-able/
+        - https://themewagon.com/themes/free-exciting-bootstrap-5-html5-ui-kits-template-adminkit/
+
