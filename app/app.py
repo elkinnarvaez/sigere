@@ -64,7 +64,7 @@ def add_header(response):
 @app.route('/index')
 def index():
     args = dict()
-    args["session"] = session
+    args["session"] = dict(session)
     return render_template("app/index.html", args = args)
 
 @app.route('/')
@@ -72,8 +72,8 @@ def login_redirect():
     # session.permanent = True
     session["pre_login_email"] = None
     session["RUNNING_LOCAL"] = RUNNING_LOCAL
-    session["email_username"] = None
-    session["password"] = None
+    session["email"] = None
+    session["username"] = None
     return redirect(url_for("auth.login"))
 
 @app.route('/f404')

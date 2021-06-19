@@ -10,26 +10,26 @@ auth = Blueprint('auth', __name__, url_prefix='/auth', template_folder='template
 
 @auth.route('/logout', methods=["POST", "GET"])
 def logout():
-    session["email_username"] = None
-    session["password"] = None
+    session["email"] = None
+    session["username"] = None
     return redirect(url_for("auth.login"))
 
 @auth.route('/login', methods=["POST", "GET"])
 def login():
     args = dict()
-    args["session"] = dict(session)
     if request.method == "POST":
         if(request.form["signin"] == "Entrar"):
             email_username = request.form["email_username"]
             password = request.form["password"]
             user = app.Users.query.filter((app.Users.password == password) & ((app.Users.email == email_username) | (app.Users.username == email_username))).first()
             if(user != None):
-                session["email_username"] = email_username
-                session["password"] = password
+                session["email"] = user.email
+                session["username"] = user.username
             else:
                 flash("Las credenciales son invalidas.")
-    if(session["email_username"] != None):
+    if(session["email"] != None):
         return redirect(url_for("home"))
+    args["session"] = dict(session)
     return render_template("auth/login.html", args = args)
 
 @auth.route('/signup', methods=["POST", "GET"])
@@ -66,6 +66,7 @@ def signup():
                 app.db.session.commit()
                 flash("Te has registrado satisfactoriamente.")
                 return redirect(url_for("auth.login"))
-    if(session["email_username"] != None):
+    if(session["email"] != None):
         return redirect(url_for("home"))
+    args["session"] = dict(session)
     return render_template("auth/signup.html", args = args)
