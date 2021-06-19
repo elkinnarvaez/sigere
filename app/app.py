@@ -13,7 +13,7 @@ ALLOWED_FILE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 app.register_blueprint(auth.auth)
 app.secret_key = '\xdb\x9d\xc6\x08\xe9\x1d\xaa\x7f\xe5\xd6\xfb\xf7\xcb]\x04\xd4c\x0f\xaf$\x83\xd5\x16\x94'
-# app.permanent_session_lifetime = timedelta(days=2)
+app.permanent_session_lifetime = timedelta(minutes=5)
 if(os.environ['DATABASE_URL'][0:10] == "postgresql"):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 else:
@@ -65,15 +65,17 @@ def add_header(response):
 def index():
     args = dict()
     args["session"] = dict(session)
+    if("email" not in session or session["email"] == None):
+        return redirect(url_for("auth.login"))
     return render_template("app/index.html", args = args)
 
 @app.route('/')
 def login_redirect():
-    # session.permanent = True
-    session["pre_login_email"] = None
-    session["RUNNING_LOCAL"] = RUNNING_LOCAL
-    session["email"] = None
-    session["username"] = None
+    if("email" not in session):
+        session["pre_login_email"] = None
+        session["RUNNING_LOCAL"] = RUNNING_LOCAL
+        session["email"] = None
+        session["username"] = None
     return redirect(url_for("auth.login"))
 
 @app.route('/f404')

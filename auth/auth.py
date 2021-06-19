@@ -21,13 +21,19 @@ def login():
         if(request.form["signin"] == "Entrar"):
             email_username = request.form["email_username"]
             password = request.form["password"]
+            remember_me = "remember_me" in request.form
+            if(remember_me):
+                session.permanent = True
+            else:
+                session.permanent = False
+            print(session.permanent)
             user = app.Users.query.filter((app.Users.password == password) & ((app.Users.email == email_username) | (app.Users.username == email_username))).first()
             if(user != None):
                 session["email"] = user.email
                 session["username"] = user.username
             else:
                 flash("Las credenciales son invalidas.")
-    if(session["email"] != None):
+    if("email" in session and session["email"] != None):
         return redirect(url_for("index"))
     args["session"] = dict(session)
     return render_template("auth/login.html", args = args)
@@ -66,7 +72,7 @@ def signup():
                 app.db.session.commit()
                 flash("Te has registrado satisfactoriamente.")
                 return redirect(url_for("auth.login"))
-    if(session["email"] != None):
-        return redirect(url_for("home"))
+    if("email" in session and session["email"] != None):
+        return redirect(url_for("index"))
     args["session"] = dict(session)
     return render_template("auth/signup.html", args = args)
