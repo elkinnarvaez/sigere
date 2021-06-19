@@ -28,7 +28,7 @@ def login():
             else:
                 flash("Las credenciales son invalidas.")
     if(session["email"] != None):
-        return redirect(url_for("home"))
+        return redirect(url_for("index"))
     args["session"] = dict(session)
     return render_template("auth/login.html", args = args)
 
