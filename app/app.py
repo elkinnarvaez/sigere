@@ -13,7 +13,7 @@ ALLOWED_FILE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 app.register_blueprint(auth.auth)
 app.secret_key = '\xdb\x9d\xc6\x08\xe9\x1d\xaa\x7f\xe5\xd6\xfb\xf7\xcb]\x04\xd4c\x0f\xaf$\x83\xd5\x16\x94'
-app.permanent_session_lifetime = timedelta(minutes=5)
+app.permanent_session_lifetime = timedelta(hours=5)
 if(os.environ['DATABASE_URL'][0:10] == "postgresql"):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 else:
@@ -65,18 +65,18 @@ def add_header(response):
 def index():
     args = dict()
     args["session"] = dict(session)
-    if("email" not in session or session["email"] == None):
+    if("user" not in session or session["user"] == None):
         flash("Por favor inicie sesión.")
         return redirect(url_for("auth.login"))
+    print(session)
     return render_template("app/index.html", args = args)
 
 @app.route('/')
 def login_redirect():
-    if("email" not in session):
+    if("user" not in session):
         session["pre_login_email"] = None
         session["RUNNING_LOCAL"] = RUNNING_LOCAL
-        session["email"] = None
-        session["username"] = None
+        session["user"] = None
     return redirect(url_for("auth.login"))
 
 @app.route('/f404')
@@ -170,7 +170,3 @@ def tooltips():
 @app.route('/typography')
 def typography():
     return render_template("app/typography.html")
-
-@app.route('/files')
-def files():
-    return render_template("app/files.html")

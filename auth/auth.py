@@ -10,8 +10,7 @@ auth = Blueprint('auth', __name__, url_prefix='/auth', template_folder='template
 
 @auth.route('/logout', methods=["POST", "GET"])
 def logout():
-    session["email"] = None
-    session["username"] = None
+    session["user"] = None
     return redirect(url_for("auth.login"))
 
 @auth.route('/login', methods=["POST", "GET"])
@@ -26,14 +25,22 @@ def login():
                 session.permanent = True
             else:
                 session.permanent = False
-            print(session.permanent)
             user = app.Users.query.filter((app.Users.password == password) & ((app.Users.email == email_username) | (app.Users.username == email_username))).first()
             if(user != None):
-                session["email"] = user.email
-                session["username"] = user.username
+                session['user'] = {
+                    'names': user.names, 
+                    'lastnames': user.lastnames,
+                    'email': user.email,
+                    'username': user.username,
+                    'password': user.password,
+                    'job': user.job,
+                    'company': user.company,
+                    'city': user.city,
+                    'profile_picture': user.profile_picture
+                    }
             else:
                 flash("Las credenciales son invalidas.")
-    if("email" in session and session["email"] != None):
+    if("user" in session and session["user"] != None):
         return redirect(url_for("index"))
     args["session"] = dict(session)
     return render_template("auth/login.html", args = args)
@@ -66,13 +73,13 @@ def signup():
                 add_user = False
             if(add_user):
                 session["pre_login_email"] = email
-                DEFAULT_PROFILE_PICTURE = f"https://{os.environ.get('S3_BUCKET_NAME')}.s3.amazonaws.com/profile_pictures/avatar.png"
+                DEFAULT_PROFILE_PICTURE = f"https://{os.environ.get('S3_BUCKET_NAME')}.s3.amazonaws.com/profile-pictures/avatar.png"
                 new_user = app.Users(names, lastnames, email, username, password, job, company, city, DEFAULT_PROFILE_PICTURE)
                 app.db.session.add(new_user)
                 app.db.session.commit()
                 flash("Te has registrado satisfactoriamente.")
                 return redirect(url_for("auth.login"))
-    if("email" in session and session["email"] != None):
+    if("user" in session and session["user"] != None):
         return redirect(url_for("index"))
     args["session"] = dict(session)
     return render_template("auth/signup.html", args = args)
