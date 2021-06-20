@@ -68,7 +68,7 @@ def index():
         flash("Por favor inicie sesión.")
         return redirect(url_for("auth.login"))
     args["session"] = dict(session)
-    return render_template("app/index.html", args = args)
+    return render_template("app/index.html", args = args, title='Inicio')
 
 @app.route('/')
 def login_redirect():
@@ -84,88 +84,162 @@ def f404():
 
 @app.route('/accordion')
 def accordion():
-    return render_template("app/accordion.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/accordion.html", args = args)
 
 @app.route('/base')
 def base():
-    return render_template("app/base.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/base.html", args = args)
 
 @app.route('/basic_table')
 def basic_table():
-    return render_template("app/basic-table.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/basic-table.html", args = args)
 
 @app.route('/bootstrap_ui')
 def bootstrap_ui():
-    return render_template("app/bootstrap-ui.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/bootstrap-ui.html", args = args)
 
 @app.route('/box_shadow')
 def box_shadow():
-    return render_template("app/box-shadow.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/box-shadow.html", args = args)
 
 @app.route('/button')
 def button():
-    return render_template("app/button.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/button.html", args = args)
 
 @app.route('/color')
 def color():
-    return render_template("app/color.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/color.html", args = args)
 
 @app.route('/float_chart')
 def float_chart():
-    return render_template("app/float-chart.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/float-chart.html", args = args)
 
 @app.route('/forgot_password')
 def forgot_password():
-    return render_template("app/forgot-password.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/forgot-password.html", args = args)
 
 @app.route('/form_elements_advance')
 def form_elements_advance():
-    return render_template("app/form-elements-advance.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/form-elements-advance.html", args = args)
 
 @app.route('/form_elements_bootstrap')
 def form_elements_bootstrap():
-    return render_template("app/form-elements-bootstrap.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/form-elements-bootstrap.html", args = args)
 
 @app.route('/label_badge')
 def label_badge():
-    return render_template("app/label-badge.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/label-badge.html", args = args)
 
 @app.route('/light_box')
 def light_box():
-    return render_template("app/light-box.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/light-box.html", args = args)
 
 @app.route('/login1')
 def login1():
-    return render_template("app/login1.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/login1.html", args = args)
 
 @app.route('/morris_chart')
 def morris_chart():
-    return render_template("app/morris-chart.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/morris-chart.html", args = args)
 
 @app.route('/notification')
 def notification():
-    return render_template("app/notification.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/notification.html", args = args)
 
 @app.route('/panels_wells')
 def panels_wells():
-    return render_template("app/panels-wells.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/panels-wells.html", args = args)
 
 @app.route('/register1')
 def register1():
-    return render_template("app/register1.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/register1.html", args = args)
 
 @app.route('/sample_page')
 def sample_page():
-    return render_template("app/sample-page.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/sample-page.html", args = args)
 
 @app.route('/tabs')
 def tabs():
-    return render_template("app/tabs.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/tabs.html", args = args)
 
 @app.route('/tooltips')
 def tooltips():
-    return render_template("app/tooltips.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/tooltips.html", args = args)
 
 @app.route('/typography')
 def typography():
-    return render_template("app/typography.html")
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/typography.html", args = args)
+
+@app.route('/profile')
+def profile():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/profile.html", args = args, title="Perfil")
+
+@app.route('/my_proyects')
+def my_proyects():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/my-proyects.html", args = args, title="Mis proyectos")
+
+@app.route('/proyect_colaborator')
+def proyect_colaborator():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/proyect-colaborator.html", args = args, title="Proyectos como colaborador")
+
+@app.route('/proyect_stakeholder')
+def proyect_stakeholder():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/proyect-stakeholder.html", args = args, title="Proyectos como stakeholder")
+
+@app.route('/delete_proyect')
+def delete_proyect():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/delete-proyect.html", args = args, title="Proyectos eliminados")

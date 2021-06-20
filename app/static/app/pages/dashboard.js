@@ -52,14 +52,22 @@ function dashboard(){
 
   Highcharts.chart('barchart', {
       title: {
-          text: 'Combination chart'
+          text: 'Resumen de trabajo anterior semana'
       },
       xAxis: {
-          categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+          categories: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
+          title: {
+              text: 'Dias de la semana'
+          }
+      },
+      yAxis: {
+          title: {
+              text: 'Número de horas de trabajo'
+          }
       },
       labels: {
           items: [{
-              html: 'Total fruit consumption',
+              html: 'Horas de trabajo',
               style: {
                   left: '130px',
                   top: '18px',
@@ -69,17 +77,17 @@ function dashboard(){
       },
       series: [{
           type: 'column',
-          name: 'Jane',
+          name: 'Proyecto 1',
           data: [3, 2, 1, 3, 4],
           color:'#f57c00'
       }, {
           type: 'column',
-          name: 'John',
+          name: 'Proyecto 2',
           data: [4, 3, 5, 7, 6],
           color:'#2BBBAD'
       }, {
           type: 'column',
-          name: 'Joe',
+          name: 'Proyecto 3',
           data: [3, 4, 2, 9, 5],
           color:'#39444e'
       }, {
@@ -93,17 +101,17 @@ function dashboard(){
           }
       }, {
           type: 'pie',
-          name: 'Total consumption',
+          name: 'Horas de trabajo',
           data: [{
-              name: 'Jane',
+              name: 'Proyecto 1',
               y: 13,
               color: '#f57c00'
           }, {
-              name: 'John',
+              name: 'Proyecto 2',
               y: 23,
               color:'#2BBBAD'
           }, {
-              name: 'Joe',
+              name: 'Proyecto 3',
               y: 19,
               color:'#39444e'
           }],

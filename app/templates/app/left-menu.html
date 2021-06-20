@@ -1,0 +1,146 @@
+<ul class="sidebar-menu">
+    <li class="nav-level">--- Navegación</li>
+    {% if request.endpoint == "index" %}
+        <li class="active treeview">
+            <a class="waves-effect waves-dark" href="{{url_for('index')}}">
+                <i class="icon-speedometer"></i><span> Dashboard</span>
+            </a>                
+        </li>
+    {% else %}
+        <li class="treeview">
+            <a class="waves-effect waves-dark" href="{{url_for('index')}}">
+                <i class="icon-speedometer"></i><span> Dashboard</span>
+            </a>                
+        </li>
+    {% endif %}
+    <li class="nav-level">--- Componentes</li>
+    {% if request.endpoint in ['my_proyects', 'proyect_colaborator', 'proyect_stakeholder', 'delete_proyect']  %}
+        <li class="active treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Proyectos</span><i class="icon-arrow-down"></i></a>
+            <ul class="treeview-menu">
+                {% if request.endpoint == 'my_proyects' %}
+                    <li class='active'><a class="waves-effect waves-dark" href="{{url_for('my_proyects')}}"><i class="icon-arrow-right"></i> Mis Proyectos</a></li>
+                {% else %}
+                    <li><a class="waves-effect waves-dark" href="{{url_for('my_proyects')}}"><i class="icon-arrow-right"></i> Mis Proyectos</a></li>
+                {% endif %}
+
+                {% if request.endpoint == 'proyect_colaborator' %}
+                    <li class='active'><a class="waves-effect waves-dark" href="{{url_for('proyect_colaborator')}}"><i class="icon-arrow-right"></i> Colaborador</a></li>
+                {% else %}
+                    <li><a class="waves-effect waves-dark" href="{{url_for('proyect_colaborator')}}"><i class="icon-arrow-right"></i> Colaborador</a></li>
+                {% endif %}
+
+                {% if request.endpoint == 'proyect_stakeholder' %}
+                    <li class='active'><a class="waves-effect waves-dark" href="{{url_for('proyect_stakeholder')}}"><i class="icon-arrow-right"></i> Stakeholder</a></li>
+                {% else %}
+                    <li><a class="waves-effect waves-dark" href="{{url_for('proyect_stakeholder')}}"><i class="icon-arrow-right"></i> Stakeholder</a></li>
+                {% endif %}
+
+                {% if request.endpoint == 'delete_proyect' %}
+                    <li class='active'><a class="waves-effect waves-dark" href="{{url_for('delete_proyect')}}"><i class="icon-arrow-right"></i> Eliminados</a></li>
+                {% else %}
+                    <li><a class="waves-effect waves-dark" href="{{url_for('delete_proyect')}}"><i class="icon-arrow-right"></i> Eliminados</a></li>
+                {% endif %}
+            </ul>
+        </li>
+    {% else %}
+        <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Proyectos</span><i class="icon-arrow-down"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="waves-effect waves-dark" href="{{url_for('my_proyects')}}"><i class="icon-arrow-right"></i> Mis Proyectos</a></li>
+                <li><a class="waves-effect waves-dark" href="{{url_for('proyect_colaborator')}}"><i class="icon-arrow-right"></i> Colaborador</a></li>
+                <li><a class="waves-effect waves-dark" href="{{url_for('proyect_stakeholder')}}"><i class="icon-arrow-right"></i> Stakeholder</a></li>
+                <li><a class="waves-effect waves-dark" href="{{url_for('delete_proyect')}}"><i class="icon-arrow-right"></i> Eliminados</a></li>
+            </ul>
+        </li>
+    {% endif %}
+    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> Charts &amp; Maps</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
+        <ul class="treeview-menu">
+            <li><a class="waves-effect waves-dark" href="{{url_for('float_chart')}}"><i class="icon-arrow-right"></i> Float Charts</a></li>
+            <li><a class="waves-effect waves-dark" href="{{url_for('morris_chart')}}"><i class="icon-arrow-right"></i> Morris Charts</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Forms</span><i class="icon-arrow-down"></i></a>
+        <ul class="treeview-menu">
+            <li><a class="waves-effect waves-dark" href="{{url_for('form_elements_bootstrap')}}"><i class="icon-arrow-right"></i> Form Elements Bootstrap</a></li>
+            
+            <li><a class="waves-effect waves-dark" href="{{url_for('form_elements_advance')}}"><i class="icon-arrow-right"></i> Form Elements Advance</a></li>
+        </ul>
+    </li>
+    
+    <li class="treeview">
+        <a class="waves-effect waves-dark" href="{{url_for('basic_table')}}">
+            <i class="icon-list"></i><span> Table</span>
+        </a>                
+    </li>
+
+
+    <li class="nav-level">--- More</li>
+
+    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-docs"></i><span>Pages</span><i class="icon-arrow-down"></i></a>
+        <ul class="treeview-menu">
+            <li class="treeview"><a href="#!"><i class="icon-arrow-right"></i><span> Authentication</span><i class="icon-arrow-down"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="waves-effect waves-dark" href="{{url_for('register1')}}" target="_blank"><i class="icon-arrow-right"></i> Register 1</a></li>
+                    
+                    <li><a class="waves-effect waves-dark" href="{{url_for('login1')}}" target="_blank"><i class="icon-arrow-right"></i><span> Login 1</span></a></li>
+                    <li><a class="waves-effect waves-dark" href="{{url_for('forgot_password')}}" target="_blank"><i class="icon-arrow-right"></i><span> Forgot Password</span></a></li>
+                    
+                </ul>
+            </li>
+            
+            <li><a class="waves-effect waves-dark" href="{{url_for('f404')}}" target="_blank"><i class="icon-arrow-right"></i> Error 404</a></li>
+            <li><a class="waves-effect waves-dark" href="{{url_for('sample_page')}}"><i class="icon-arrow-right"></i> Sample Page</a></li>
+            
+        </ul>
+    </li>
+
+
+    <li class="nav-level">--- Menu Level</li>
+
+    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icofont icofont-company"></i><span>Menu Level 1</span><i class="icon-arrow-down"></i></a>
+        <ul class="treeview-menu">
+            <li>
+                <a class="waves-effect waves-dark" href="#!">
+                    <i class="icon-arrow-right"></i>
+                    Level Two
+                </a>
+            </li>
+            <li class="treeview">
+                <a class="waves-effect waves-dark" href="#!">
+                    <i class="icon-arrow-right"></i>
+                    <span>Level Two</span>
+                    <i class="icon-arrow-down"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a class="waves-effect waves-dark" href="#!">
+                            <i class="icon-arrow-right"></i>
+                            Level Three
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="#!">
+                            <i class="icon-arrow-right"></i>
+                            <span>Level Three</span>
+                            <i class="icon-arrow-down"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a class="waves-effect waves-dark" href="#!">
+                                    <i class="icon-arrow-right"></i>
+                                    Level Four
+                                </a>
+                            </li>
+                            <li>
+                                <a class="waves-effect waves-dark" href="#!">
+                                    <i class="icon-arrow-right"></i>
+                                    Level Four
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

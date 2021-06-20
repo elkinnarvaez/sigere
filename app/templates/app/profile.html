@@ -6,13 +6,18 @@
    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
-     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-     <![endif]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')}}"></script>
+    <![endif]-->
 
+   <!-- Meta -->
    <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="codedthemes">
+   <meta name="keywords" content=", Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+   <meta name="author" content="codedthemes">
+
    <!-- Favicon icon -->
    <link rel="shortcut icon" href="{{url_for('static', filename='app/images/favicon.png')}}" type="image/x-icon">
    <link rel="icon" href="{{url_for('static', filename='app/images/favicon.ico')}}" type="image/x-icon">
@@ -32,27 +37,25 @@
    <!-- Required Fremwork -->
    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/plugins/bootstrap/css/bootstrap.min.css')}}">
 
-   <!-- Chartlist chart css -->
-   <link rel="stylesheet" href="{{url_for('static', filename='app/plugins/chartist/dist/chartist.css')}}" type="text/css" media="all">
+   <!-- bash syntaxhighlighter css -->
+   <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='app/plugins/syntaxhighlighter/styles/shCoreDjango.css')}}" />
 
-   <!-- Weather css -->
-   <link href="{{url_for('static', filename='app/css/svg-weather.css')}}" rel="stylesheet">
-
-
-   <!-- Style.css -->
+   <!-- Style.css')}} -->
    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/css/main.css')}}">
 
-   <!-- Responsive.css-->
+   <!-- Responsive.css')}}-->
    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/css/responsive.css')}}">
+
+
 
 </head>
 
 <body class="sidebar-mini fixed">
-   <div class="loader-bg">
-      <div class="loader-bar">
-      </div>
-   </div>
    <div class="wrapper">
+      <div class="loader-bg">
+         <div class="loader-bar">
+         </div>
+      </div>
       <!-- Navbar-->
       {% include 'app/navbar.html' %}
       <!-- Side-Nav-->
@@ -67,6 +70,7 @@
          <div class="had-container">
             <div class="card card_main header-users-main">
                <div class="card-content user-box">
+
                   <div class="md-group-add-on p-20">
                      <span class="md-add-on">
                                     <i class="icofont icofont-search-alt-2 chat-search"></i>
@@ -287,9 +291,6 @@
                      <i class="icofont icofont-location-arrow f-20 "></i>
                  </button>
 
-               <button type="button" class="chat-send waves-effect waves-light">
-                    <i class="icofont icofont-location-arrow f-20 "></i>
-                </button>
             </div>
 
          </div>
@@ -297,224 +298,145 @@
       <!-- Sidebar chat end-->
       <div class="content-wrapper">
          <!-- Container-fluid starts -->
-         <!-- Main content starts -->
          <div class="container-fluid">
-            <div class="row">
-               <div class="main-header">
-                  <h4>Dashboard</h4>
-               </div>
-            </div>
-            <!-- 4-blocks row start -->
-            <!-- 4-blocks row end -->
-
-            <!-- 1-3-block row start -->
-            <div class="row">
-               <div class="col-lg-4 align-items-center">
-                  <div class="card">
-                     <div class="user-block-2">
-                        {% if args["session"]["RUNNING_LOCAL"] %}
-                           <img class="img-fluid" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="user-header">
-                        {% else %}
-                           <img class="img-fluid" src="{{args['session']['user']['profile_picture']}}" alt="user-header">
-                        {% endif %}
-                        <h5>{{args["session"]["user"]["names"]}} {{args["session"]["user"]["lastnames"]}} </h5>
-                        <h6>{{args["session"]["user"]["job"]}}</h6>
+            <!-- Main content starts -->
+            <div>
+               <!-- Row Starts -->
+               <div class="row">
+                  <div class="col-sm-12 p-0">
+                     <div class="main-header">
+                        <h4>Perfil del usuario</h4>
+                        <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                           <li class="breadcrumb-item"><a href="{{url_for('index')}}"><i class="icofont icofont-home"></i></a>
+                           </li>
+                           <li class="breadcrumb-item"><a href="{{url_for('profile')}}">Perfil</a>
+                        </ol>
                      </div>
-                     <div class="card-block"> 
-                        <div class="user-block-2-activities">
-                           <div class="user-block-2-active">
-                              <i class="icofont icofont-ui-user"></i> Usuario
-                              <label class="label label-primary">{{args["session"]["user"]["username"]}}</label>
-                           </div>
-                        </div>
-                        <div class="user-block-2-activities">
-                           <div class="user-block-2-active">
-                              <i class="icofont icofont-at"></i> Correo
-                              <label class="label label-primary">{{args["session"]["user"]["email"]}}</label>
-                           </div>
-                        </div>
+                  </div>
+               </div>
+               <!-- Row end -->
 
-                        <div class="user-block-2-activities">
-                           <div class="user-block-2-active">
-                              <i class="icofont icofont-company"></i> Compañia
-                              <label class="label label-primary">{{args["session"]["user"]["company"]}}</label>
-                           </div>
-
+               <!-- Row start -->
+               <div class="row">
+                  <!-- Form Control starts -->
+                  <div class="col-lg-4 align-items-center">
+                     <div class="card">
+                        <div class="user-block-2">
+                           {% if args["session"]["RUNNING_LOCAL"] %}
+                              <img class="img-fluid" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="user-header">
+                           {% else %}
+                              <img class="img-fluid" src="{{args['session']['user']['profile_picture']}}" alt="user-header">
+                           {% endif %}
+                           <h5>{{args["session"]["user"]["names"]}} {{args["session"]["user"]["lastnames"]}} </h5>
+                           <h6>{{args["session"]["user"]["job"]}}</h6>
                         </div>
-                        <div class="user-block-2-activities">
-                           <div class="user-block-2-active">
-                              <i class="icofont icofont-hill-side"></i> Ciudad
-                              <label class="label label-primary">{{args["session"]["user"]["city"]}}</label>
+                        <div class="card-block"> 
+                           <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                 <i class="icofont icofont-ui-user"></i> Usuario
+                                 <label class="label label-primary">{{args["session"]["user"]["username"]}}</label>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                 <i class="icofont icofont-at"></i> Correo
+                                 <label class="label label-primary">{{args["session"]["user"]["email"]}}</label>
+                              </div>
+                           </div>
+   
+                           <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                 <i class="icofont icofont-company"></i> Compañia
+                                 <label class="label label-primary">{{args["session"]["user"]["company"]}}</label>
+                              </div>
+   
+                           </div>
+                           <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                 <i class="icofont icofont-hill-side"></i> Ciudad
+                                 <label class="label label-primary">{{args["session"]["user"]["city"]}}</label>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
-               </div>
-               <div class="col-xl-8 col-lg-12">
-                  <div class="card">
-                     <div class="card-block">
-                        <div class="table-responsive">
-                           <table class="table m-b-0 photo-table">
-                              <thead>
-                                 <tr class="text-uppercase">
-                                    <th>Photo</th>
-                                    <th>Project</th>
-                                    <th>Completed</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-2.png')}}" alt="User">
-                                    </th>
-                                    <td>Appestia Project
-                                       <p><i class="icofont icofont-id-card"></i>Administrador</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">226,134</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 1 1 4.209902994920235 25.41987555688496 L 15 15" fill="#2196F3"></path><path d="M 4.209902994920235 25.41987555688496 A 15 15 0 0 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>50%</td>
-                                    <td>October 21, 2015</td>
-                                 </tr>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-4.png')}}" alt="User">
-                                    </th>
-                                    <td>Contract with belife Company
-                                       <p><i class="icofont icofont-id-card"></i>Stakeholder</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 28.00043211809656 22.482564048691025 L 15 15" fill="#2196F3"></path><path d="M 28.00043211809656 22.482564048691025 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>70%</td>
-                                    <td>November 21, 2015</td>
-                                 </tr>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
-                                    </th>
-                                    <td>Web Consultancy project
-                                       <p><i class="icofont icofont-id-card"></i>Colaborador</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">1,4</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 29.265847744427305 10.36474508437579 L 15 15" fill="#2196F3"></path><path d="M 29.265847744427305 10.36474508437579 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>40%</td>
-                                    <td>September 21, 2015</td>
-                                 </tr>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-3.png')}}" alt="User">
-                                    </th>
-                                    <td>Contract with belife Company
-                                       <p><i class="icofont icofont-id-card"></i>Administrador</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 28.00043211809656 22.482564048691025 L 15 15" fill="#2196F3"></path><path d="M 28.00043211809656 22.482564048691025 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>70%</td>
-                                    <td>November 21, 2015</td>
-                                 </tr>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
-                                    </th>
-                                    <td>Contract with belife Company
-                                       <p><i class="icofont icofont-id-card"></i>Colaborador</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 28.00043211809656 22.482564048691025 L 15 15" fill="#2196F3"></path><path d="M 28.00043211809656 22.482564048691025 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>70%</td>
-                                    <td>November 21, 2015</td>
-                                 </tr>
-                                 <tr>
-                                    <th>
-                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-2.png')}}" alt="User">
-                                    </th>
-                                    <td>Contract with belife Company
-                                       <p><i class="icofont icofont-id-card"></i>Stakeholder</p>
-                                    </td>
-                                    <td>
-                                       <span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 28.00043211809656 22.482564048691025 L 15 15" fill="#2196F3"></path><path d="M 28.00043211809656 22.482564048691025 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ccc"></path></svg>
-                                    </td>
-                                    <td>70%</td>
-                                    <td>November 21, 2015</td>
-                                 </tr>
+                  <!-- Form Control ends -->
 
-                              </tbody>
-                           </table>
+                  <!-- Textual inputs starts -->
+                  <div class="col-lg-8">
+                     <div class="card">
+                        <div class="card-header">
+                           <h5 class="card-header-text">Formulario</h5>
+                        </div>
+                        <!-- end of modal -->
+                        <div class="card-block">
+                           <form>
+                              <div class="form-group row">
+                                 <label for="names" class="col-xs-2 col-form-label form-control-label">Nombres</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['names']}}" id="names">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="lastnames" class="col-xs-2 col-form-label form-control-label">Apellidos</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['lastnames']}}" id="lastnames">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="example-username-input" class="col-xs-2 col-form-label form-control-label">Usuario</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['username']}}" id="example-username-input">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="example-email-input" class="col-xs-2 col-form-label form-control-label">Email</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="email" value="{{args['session']['user']['email']}}" id="example-email-input">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="example-job-input" class="col-xs-2 col-form-label form-control-label">Trabajo</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['job']}}" id="example-job-input">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="example-city-input" class="col-xs-2 col-form-label form-control-label">Ciudad</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['city']}}" id="example-city-input">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="example-company-input" class="col-xs-2 col-form-label form-control-label">Compañia</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="{{args['session']['user']['company']}}" id="example-company-input">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="file" class="col-md-2 col-form-label form-control-label">Foto</label>
+                                 <div class="col-md-9">
+                                    <label for="file" class="custom-file">
+                                                <input type="file" id="file" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                 </div>
+                              </div>
+                              <input type="submit" value="Enviar" class="btn btn-success waves-effect waves-light m-r-30">
+                           </form>
                         </div>
                      </div>
                   </div>
+                  <!-- Textual inputs ends -->
                </div>
+               <!-- Row end -->
             </div>
-            <!-- 1-3-block row end -->
-
-            <!-- 2-1 block start -->
-            <div class="row">
-               <div class="col-md-10 offset-md-1">
-                  <div class="card">
-                     <div class="card-block">
-                        <div id="barchart" style="min-width: 250px; height: 330px; margin: 0 auto"></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- 2-1 block end -->
+            <!-- Main content ends -->
          </div>
-         <!-- Main content ends -->
          <!-- Container-fluid ends -->
       </div>
    </div>
 
-
-   <!-- Warning Section Starts -->
-   <!-- Older IE warning message -->
-   <!--[if lt IE 9]>
-      <div class="ie-warning">
-          <h1>Warning!!</h1>
-          <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-          <div class="iew-container">
-              <ul class="iew-download">
-                  <li>
-                      <a href="http://www.google.com/chrome/">
-                          <img src="{{url_for('static', filename='app/images/browser/chrome.png')}}" alt="Chrome">
-                          <div>Chrome</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.mozilla.org/en-US/firefox/new/">
-                          <img src="{{url_for('static', filename='app/images/browser/firefox.png')}}" alt="Firefox">
-                          <div>Firefox</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="http://www.opera.com">
-                          <img src="{{url_for('static', filename='app/images/browser/opera.png')}}" alt="Opera">
-                          <div>Opera</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.apple.com/safari/">
-                          <img src="{{url_for('static', filename='app/images/browser/safari.png')}}" alt="Safari">
-                          <div>Safari</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                          <img src="{{url_for('static', filename='app/images/browser/ie.png')}}" alt="">
-                          <div>IE (9 & above)</div>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          <p>Sorry for the inconvenience!</p>
-      </div>
-      <![endif]-->
-   <!-- Warning Section Ends -->
 
    <!-- Required Jqurey -->
    <script src="{{url_for('static', filename='app/plugins/Jquery/dist/jquery.min.js')}}"></script>
@@ -523,6 +445,9 @@
 
    <!-- Required Fremwork -->
    <script src="{{url_for('static', filename='app/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+   <!-- waves effects.js -->
+   <script src="{{url_for('static', filename='app/plugins/Waves/waves.min.js')}}"></script>
 
    <!-- Scrollbar JS-->
    <script src="{{url_for('static', filename='app/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
@@ -534,37 +459,18 @@
    <!-- notification -->
    <script src="{{url_for('static', filename='app/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
 
-   <!-- Sparkline charts -->
-   <script src="{{url_for('static', filename='app/plugins/jquery-sparkline/dist/jquery.sparkline.js')}}"></script>
-
-   <!-- Counter js  -->
-   <script src="{{url_for('static', filename='app/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
-   <script src="{{url_for('static', filename='app/plugins/countdown/js/jquery.counterup.js')}}"></script>
-
-   <!-- Echart js -->
-   <script src="{{url_for('static', filename='app/plugins/charts/echarts/js/echarts-all.js')}}"></script>
-
-   <script src="https://code.highcharts.com/highcharts.js"></script>
-   <script src="https://code.highcharts.com/modules/exporting.js"></script>
-   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+   <!-- Highliter js -->
+   <script type="text/javascript" src="{{url_for('static', filename='app/plugins/syntaxhighlighter/scripts/shCore.js')}}"></script>
+   <script type="text/javascript" src="{{url_for('static', filename='app/plugins/syntaxhighlighter/scripts/shBrushJScript.js')}}"></script>
+   <script type="text/javascript" src="{{url_for('static', filename='app/plugins/syntaxhighlighter/scripts/shBrushXml.js')}}"></script>
+   <script type="text/javascript">
+      SyntaxHighlighter.all();
+   </script>
 
    <!-- custom js -->
    <script type="text/javascript" src="{{url_for('static', filename='app/js/main.min.js')}}"></script>
-   <script type="text/javascript" src="{{url_for('static', filename='app/pages/dashboard.js')}}"></script>
    <script type="text/javascript" src="{{url_for('static', filename='app/pages/elements.js')}}"></script>
    <script src="{{url_for('static', filename='app/js/menu.min.js')}}"></script>
-<script>
-var $window = $(window);
-var nav = $('.fixed-button');
-$window.scroll(function(){
-    if ($window.scrollTop() >= 200) {
-       nav.addClass('active');
-    }
-    else {
-       nav.removeClass('active');
-    }
-});
-</script>
 
 </body>
 
