@@ -64,11 +64,10 @@ def add_header(response):
 @app.route('/index')
 def index():
     args = dict()
-    args["session"] = dict(session)
     if("user" not in session or session["user"] == None):
         flash("Por favor inicie sesión.")
         return redirect(url_for("auth.login"))
-    print(session)
+    args["session"] = dict(session)
     return render_template("app/index.html", args = args)
 
 @app.route('/')
