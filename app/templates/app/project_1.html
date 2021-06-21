@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>{{ title }}</title>
+   <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+     <![endif]-->
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   <!-- Favicon icon -->
+   <link rel="shortcut icon" href="{{url_for('static', filename='app/images/favicon.png')}}" type="image/x-icon">
+   <link rel="icon" href="{{url_for('static', filename='app/images/favicon.ico')}}" type="image/x-icon">
+
+   <!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+   <!-- themify -->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/icon/themify-icons/themify-icons.css')}}">
+
+   <!-- iconfont -->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/icon/icofont/css/icofont.css')}}">
+
+   <!-- simple line icon -->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/icon/simple-line-icons/css/simple-line-icons.css')}}">
+
+   <!-- Required Fremwork -->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/plugins/bootstrap/css/bootstrap.min.css')}}">
+
+   <!-- Chartlist chart css -->
+   <link rel="stylesheet" href="{{url_for('static', filename='app/plugins/chartist/dist/chartist.css')}}" type="text/css" media="all">
+
+   <!-- Weather css -->
+   <link href="{{url_for('static', filename='app/css/svg-weather.css')}}" rel="stylesheet">
+
+
+   <!-- Style.css -->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/css/main.css')}}">
+
+   <!-- Responsive.css-->
+   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='app/css/responsive.css')}}">
+
+
+</head>
+
+<body class="sidebar-mini fixed">
+   <div class="loader-bg">
+      <div class="loader-bar">
+      </div>
+   </div>
+   <div class="wrapper">
+      <!-- Navbar-->
+      {% include 'app/navbar.html' %}
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print ">
+         <section class="sidebar" id="sidebar-scroll">
+            <!-- Sidebar Menu-->
+            {% include 'app/left-menu.html' %}
+         </section>
+      </aside>
+      {% include 'app/side_chat.html' %}
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <!-- Main content starts -->
+         <div class="container-fluid">
+            <!-- Header start -->
+            <div class="row">
+               <div class="main-header">
+                  <h4>Sistema de Gestión de Requisitos para Proyectos de Software (SIGERE)</h4>
+                  <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                     <li class="breadcrumb-item">
+                        <a href="{{url_for('index')}}">
+                           <i class="icofont icofont-home"></i>
+                        </a>
+                     </li>
+                     <li class="breadcrumb-item">
+                        <a href="#!"> Proyectos </a>
+                     </li>
+                     <li class="breadcrumb-item">
+                        <a href="{{url_for('my_projects')}}"> Mis Proyectos </a>
+                     </li>
+                     <li class="breadcrumb-item"><a href="{{url_for('project_1')}}">{{ title }}</a>
+                     </li>
+                     <li class="breadcrumb-item"><a href="{{url_for('project_1')}}">Inicio</a>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <!-- Header end --> 
+
+            <!-- Header start -->
+            <div class="row">
+               <div class="main-header">
+                  <a href="{{url_for('versions')}}" class="btn btn-primary active waves-effect waves-light">Ir a versiones</a>
+               </div>
+            </div>
+            <!-- Header end --> 
+            <!-- 4-blocks row start -->
+            <!-- 4-blocks row end -->
+
+            <!-- 1-3-block row start -->
+            <div class="row">
+               <div class="col-lg-5 align-items-center">
+                  <div class="card" style="padding: 10px;">
+                     <div class="main-header">
+                        <h4>Integrantes</h4>
+                     </div>
+                     <!-- Nav tabs -->
+                     <ul class="nav nav-tabs md-tabs img-tabs b-none" role="tablist">
+                        <li class="nav-item">
+                           <a class="nav-link active" data-toggle="tab" href="#home8" role="tab">
+                              <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" class="img-fluid img-circle" alt="">
+                              <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" data-toggle="tab" href="#profile8" role="tab">
+                              <img src="{{url_for('static', filename='app/images/avatar-4.png')}}" class="img-fluid img-circle" alt="">
+                              <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" data-toggle="tab" href="#messages8" role="tab">
+                              <img src="{{url_for('static', filename='app/images/avatar-3.png')}}" class="img-fluid img-circle" alt="">
+                              <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" data-toggle="tab" href="#settings8" role="tab">
+                              <img src="{{url_for('static', filename='app/images/avatar-5.png')}}" class="img-fluid img-circle" alt="">
+                              <span class="quote"><i class="icofont icofont-quote-left bg-primary"></i></span>
+                           </a>
+                        </li>
+                     </ul>
+                     <!-- Tab panes -->
+                     <div class="tab-content">
+                        <div class="tab-pane active" id="home8" role="tabpanel">
+                           <div class="text-center">
+                              <p><b>Nombre:</b> {{args["session"]["user"]["names"]}} {{args["session"]["user"]["lastnames"]}}</p>
+                              <p><b>Correo:</b> {{args["session"]["user"]["email"]}}</p>
+                              <p><b>Username:</b> {{args["session"]["user"]["username"]}}</p>
+                              <p><b>Institución:</b> {{args["session"]["user"]["company"]}} </p>
+                              <p><b>Cargo:</b> {{args["session"]["user"]["job"]}} </p>
+                              <p><b>Rol:</b> Administrador </p>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="profile8" role="tabpanel">
+                           <div class="text-center">
+                              <p><b>Nombre:</b> Carlos Rios</p>
+                              <p><b>Correo:</b> carlosr@gmail.com</p>
+                              <p><b>Institución:</b> Universidad Javeriana Cali</p>
+                              <p><b>Cargo:</b> Profesor</p>
+                              <p><b>Rol:</b> Colaborador</p>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="messages8" role="tabpanel">
+                           <div class="text-center">
+                              <p><b>Nombre:</b> Sebastian Reyes</p>
+                              <p><b>Correo:</b> sebasr@gmail.com</p>
+                              <p><b>Institución:</b> Universidad Javeriana Cali</p>
+                              <p><b>Cargo:</b> Estudiante</p>
+                              <p><b>Rol:</b> Stakeholder</p>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="settings8" role="tabpanel">
+                           <div class="text-center">
+                              <p><b>Nombre:</b> Pedro Amador</p>
+                              <p><b>Correo:</b> pedro@gmail.com</p>
+                              <p><b>Institución:</b> Universidad Javeriana Cali</p>
+                              <p><b>Cargo:</b> Profesor</p>
+                              <p><b>Rol:</b> Colaborador</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="card" style="padding: 10px; max-height: 337px; overflow-y: auto;">
+                     <div class="main-header">
+                        <h4>Tareas</h4>
+                     </div>
+                     <div class="row">
+                        <div class="col-xl-6">
+                           <div class="panel panel-default">
+                              <div class="panel-heading bg-primary txt-white">
+                                 Para hoy
+                              </div>
+                              <div class="panel-body" style="padding:10px; max-height: 200px; overflow-y: auto;">
+                                 <a>
+                                    <div class="well well-sm">
+                                       <b>Entrevista con el cliente</b>
+                                       <br>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-1.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-5.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-3.png')}}" style="width:20px; margin-right: 10px" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-4.png')}}" style="width:20px;" alt="User Image"></span>
+                                    </div>
+                                 </a>
+                                 <a>
+                                    <div class="well well-sm">
+                                       <b>Validar requisitos</b>
+                                       <br>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-1.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-5.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="panel-footer" style="text-align: center;">
+                                 <a href="#!">Ver todas las tareas</a>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                           <div class="panel panel-default">
+                              <div class="panel-heading bg-primary txt-white">
+                                 Asignadas para mi
+                              </div>
+                              <div class="panel-body" style="padding:10px; max-height: 200px; overflow-y: auto;">
+                                 <a>
+                                    <div class="well well-sm">
+                                       <b>Autorizar cambios</b>
+                                       <br>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-1.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-5.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-3.png')}}" style="width:20px; margin-right: 10px" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-4.png')}}" style="width:20px;" alt="User Image"></span>
+                                    </div>
+                                 </a>
+                                 <a>
+                                    <div class="well well-sm">
+                                       <b>Validar requisitos</b>
+                                       <br>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-1.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                       <span><img class="img-circle " src="{{url_for('static', filename='app/images/avatar-5.png')}}" style="width:20px; margin-right: 10px;" alt="User Image"></span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="panel-footer" style="text-align: center;">
+                                 <a href="#!">Ver todas las tareas</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <button type="button" style="margin-bottom: 30px;" class="btn btn-primary btn-block waves-effect">Agregar nueo reporte</button>
+               </div>
+               <div class="col-xl-7 col-lg-12">
+                  <div class="card">
+                     <div class="main-header">
+                        <h4>Requisitos</h4>
+                     </div>
+                     <div class="card-block" style="max-height: 650px; overflow-y: auto;">
+                        <div class="table-responsive">
+                           <table class="table m-b-0 photo-table">
+                              <thead>
+                                 <tr class="text-uppercase">
+                                    <th>ID</th>
+                                    <th>Autor</th>
+                                    <th>Categoria</th>
+                                    <th>Descripción</th>
+                                    <th>Estado</th>
+                                    <th>Última modificación</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <th>
+                                       001
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Gestión de colaboradores
+                                    </th>
+                                    <td>
+                                       El sistema SIGERE debe proporcinar al creador de un proyecto la capacidad de añadir o eliminar colaboradores.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       002
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-5.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Gestión de colaboradores
+                                    </th>
+                                    <td>
+                                       El sistema debe proporcionar a un colaborador la capacidad de unirse a un proyecto por medio de un enlace compartido o por medio de una invitación haciendo uso de un correo electrónico.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>24 de marzo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       003
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-4.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Comunicación
+                                    </th>
+                                    <td>
+                                       El sistema deberá proporcionar a los usuarios de un proyecto la capacidad de poderse comunicar a través de un chat.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>27 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       004
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-4.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Manejo de cambios
+                                    </th>
+                                    <td>
+                                       El sistema deberá tener un modelo de sugerencias de cambios, en el cual se depositan los posibles cambios que se hagan en los requisitos, y un administrador, o el mismo propietario del proyecto, deberá aceptar o rechazar dicha propuesta.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       005
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Visualización
+                                    </th>
+                                    <td>
+                                       El sistema SIGERE, debe ser capaz de mostrar en la pagina de inicio del sistema los diferentes proyectos a los cuales un usuario este unido.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>29 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       006
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Manejo de información
+                                    </th>
+                                    <td>
+                                       El sistema SIGERE, debe permitir a los usuarios dentro de un proyecto modificar su contenido.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       007
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-5.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Creación de proyectos
+                                    </th>
+                                    <td>
+                                       Cuando un usuario tiene una cuenta creada, el sistema debe proporcionarle la capacidad de crear proyectos o participar en proyectos que ya han sido previamente creados.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       008
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Seguridad
+                                    </th>
+                                    <td>
+                                       El sistema debe proteger la información que atañe a todo el proceso. Es menester contar con sistemas de seguridad informatica. IDS, firewall, etc...
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       009
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-5.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Legibilidad
+                                    </th>
+                                    <td>
+                                       El sistema debe ser creado con código mantenible y legible.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       010
+                                    </th>
+                                    <th>
+                                       <img class="img-fluid img-circle" src="{{url_for('static', filename='app/images/avatar-4.png')}}" alt="User">
+                                    </th>
+                                    <th>
+                                       Disponibilidad
+                                    </th>
+                                    <td>
+                                       El sistema debe estar diponible en todo momento para modificar cosas en los proyectos.
+                                    </td>
+                                    <td>
+                                       Validado
+                                    </td>
+                                    <td>21 de mayo del 2021</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <button type="button" style="margin-bottom: 30px;" class="btn btn-primary btn-block waves-effect">Agregar nueo requisito</button>
+               </div>
+            </div>
+            <!-- 1-3-block row end -->
+         </div>
+         <!-- Main content ends -->
+         <!-- Container-fluid ends -->
+      </div>
+   </div>
+
+
+   <!-- Warning Section Starts -->
+   <!-- Older IE warning message -->
+   <!--[if lt IE 9]>
+      <div class="ie-warning">
+          <h1>Warning!!</h1>
+          <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+          <div class="iew-container">
+              <ul class="iew-download">
+                  <li>
+                      <a href="http://www.google.com/chrome/">
+                          <img src="{{url_for('static', filename='app/images/browser/chrome.png')}}" alt="Chrome">
+                          <div>Chrome</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.mozilla.org/en-US/firefox/new/">
+                          <img src="{{url_for('static', filename='app/images/browser/firefox.png')}}" alt="Firefox">
+                          <div>Firefox</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="http://www.opera.com">
+                          <img src="{{url_for('static', filename='app/images/browser/opera.png')}}" alt="Opera">
+                          <div>Opera</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.apple.com/safari/">
+                          <img src="{{url_for('static', filename='app/images/browser/safari.png')}}" alt="Safari">
+                          <div>Safari</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                          <img src="{{url_for('static', filename='app/images/browser/ie.png')}}" alt="">
+                          <div>IE (9 & above)</div>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <p>Sorry for the inconvenience!</p>
+      </div>
+      <![endif]-->
+   <!-- Warning Section Ends -->
+
+   <!-- Required Jqurey -->
+   <script src="{{url_for('static', filename='app/plugins/Jquery/dist/jquery.min.js')}}"></script>
+   <script src="{{url_for('static', filename='app/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+   <script src="{{url_for('static', filename='app/plugins/tether/dist/js/tether.min.js')}}"></script>
+
+   <!-- Required Fremwork -->
+   <script src="{{url_for('static', filename='app/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+   <!-- Scrollbar JS-->
+   <script src="{{url_for('static', filename='app/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+   <script src="{{url_for('static', filename='app/plugins/jquery.nicescroll/jquery.nicescroll.min.js')}}"></script>
+
+   <!--classic JS-->
+   <script src="{{url_for('static', filename='app/plugins/classie/classie.js')}}"></script>
+
+   <!-- notification -->
+   <script src="{{url_for('static', filename='app/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
+
+   <!-- Sparkline charts -->
+   <script src="{{url_for('static', filename='app/plugins/jquery-sparkline/dist/jquery.sparkline.js')}}"></script>
+
+   <!-- Counter js  -->
+   <script src="{{url_for('static', filename='app/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
+   <script src="{{url_for('static', filename='app/plugins/countdown/js/jquery.counterup.js')}}"></script>
+
+   <!-- Echart js -->
+   <script src="{{url_for('static', filename='app/plugins/charts/echarts/js/echarts-all.js')}}"></script>
+
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+   <!-- custom js -->
+   <script type="text/javascript" src="{{url_for('static', filename='app/js/main.min.js')}}"></script>
+   <script type="text/javascript" src="{{url_for('static', filename='app/pages/dashboard.js')}}"></script>
+   <script type="text/javascript" src="{{url_for('static', filename='app/pages/elements.js')}}"></script>
+   <script src="{{url_for('static', filename='app/js/menu.min.js')}}"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+$window.scroll(function(){
+    if ($window.scrollTop() >= 200) {
+       nav.addClass('active');
+    }
+    else {
+       nav.removeClass('active');
+    }
+});
+</script>
+
+</body>
+
+</html>

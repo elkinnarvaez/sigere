@@ -19,20 +19,38 @@
              <li class="dropdown notification-menu">
                 <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
                    <i class="icon-bell"></i>
-                   <span class="badge badge-danger header-badge">9</span>
+                   <span class="badge badge-danger header-badge">4</span>
                 </a>
                 <ul class="dropdown-menu">
-                   <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
+                   <li class="not-head">Tienes <b class="text-primary">4</b> notificaciones nuevas.</li>
                    <li class="bell-notification">
                       <a href="javascript:;" class="media">
                          <span class="media-left media-icon">
-               <img class="img-circle" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="User Image">
+               <img class="img-circle" src="{{url_for('static', filename='app/images/avatar-2.png')}}" alt="User Image">
              </span>
-                         <div class="media-body"><span class="block">Lisa sent you a mail</span><span class="text-muted block-time">2min ago</span></div>
+                         <div class="media-body"><span class="block">Sebastian Reyes te envió un mensaje</span><span class="text-muted block-time">2 minutes ago</span></div>
                       </a>
+                      <a href="javascript:;" class="media">
+                        <span class="media-left media-icon">
+              <img class="img-circle" src="{{url_for('static', filename='app/images/avatar-3.png')}}" alt="User Image">
+            </span>
+                        <div class="media-body"><span class="block">Juan Rengifo modificó la versión de un requisito</span><span class="text-muted block-time">2 days ago</span></div>
+                     </a>
+                     <a href="javascript:;" class="media">
+                        <span class="media-left media-icon">
+              <img class="img-circle" src="{{url_for('static', filename='app/images/avatar-4.png')}}" alt="User Image">
+            </span>
+                        <div class="media-body"><span class="block">Carlos solocitó unirse al proyecto SIGERE</span><span class="text-muted block-time">1 week ago</span></div>
+                     </a>
+                     <a href="javascript:;" class="media">
+                        <span class="media-left media-icon">
+              <img class="img-circle" src="{{url_for('static', filename='app/images/avatar-5.png')}}" alt="User Image">
+            </span>
+                        <div class="media-body"><span class="block">Pedro te ha asignado una tarea</span><span class="text-muted block-time">2 weeks ago</span></div>
+                     </a>
                    </li>
                    <li class="not-footer">
-                      <a href="#!">See all notifications.</a>
+                      <a href="#!">Ver todas las notificaciones.</a>
                    </li>
                 </ul>
              </li>
@@ -63,13 +81,11 @@
 
                 </a>
                 <ul class="dropdown-menu settings-menu">
-                   <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
                    <li><a href="{{url_for('profile')}}"><i class="icon-user"></i> Profile</a></li>
-                   <li><a href="#"><i class="icon-envelope-open"></i> My Messages</a></li>
+                   <li><a href="#" class="drop icon-circle displayChatbox"><i class="icon-envelope-open"></i> My Messages</a></li>
                    <li class="p-0">
                       <div class="dropdown-divider m-0"></div>
                    </li>
-                   <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li>
                    <li><a href="{{url_for('auth.logout')}}"><i class="icon-logout"></i> Logout</a></li>
 
                 </ul>
@@ -86,40 +102,44 @@
 
              </form>
              <div class="morphsearch-content">
+               <div class="dummy-column">
+                  <h2>Últimas busquedas</h2>
+                  <a class="dummy-media-object" href="#!">
+                     <!-- <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="PagePreloadingEffect" /> -->
+                     <h3>Proyectos terminados</h3>
+                  </a>
+
+                  <a class="dummy-media-object" href="#!">
+                     <!-- <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="DraggableDualViewSlideshow" /> -->
+                     <h3>Mis proyectos</h3>
+                  </a>
+
+                  <a class="dummy-media-object" href="#!">
+                    <!-- <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="DraggableDualViewSlideshow" /> -->
+                    <h3>Requisitos</h3>
+                  </a>
+
+                  <a class="dummy-media-object" href="#!">
+                     <!-- <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="DraggableDualViewSlideshow" /> -->
+                     <h3>Tareas asignadas</h3>
+                   </a>
+               </div>
                 <div class="dummy-column">
-                   <h2>People</h2>
+                   <h2>Personas</h2>
                    <a class="dummy-media-object" href="#!">
-                      <img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="Sara Soueidan" />
-                      <h3>Sara Soueidan</h3>
+                      <img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="" />
+                      <h3>Sandra Estrada</h3>
                    </a>
 
                    <a class="dummy-media-object" href="#!">
-                      <img class="round" src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&d=identicon&r=G" alt="Shaun Dona" />
-                      <h3>Shaun Dona</h3>
-                   </a>
-                </div>
-                <div class="dummy-column">
-                   <h2>Popular</h2>
-                   <a class="dummy-media-object" href="#!">
-                      <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="PagePreloadingEffect" />
-                      <h3>Page Preloading Effect</h3>
+                      <img class="round" src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&d=identicon&r=G" alt="" />
+                      <h3>Alexis Mosquera</h3>
                    </a>
 
                    <a class="dummy-media-object" href="#!">
-                      <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="DraggableDualViewSlideshow" />
-                      <h3>Draggable Dual-View Slideshow</h3>
-                   </a>
-                </div>
-                <div class="dummy-column">
-                   <h2>Recent</h2>
-                   <a class="dummy-media-object" href="#!">
-                      <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="TooltipStylesInspiration" />
-                      <h3>Tooltip Styles Inspiration</h3>
-                   </a>
-                   <a class="dummy-media-object" href="#!">
-                      <img src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="NotificationStyles" />
-                      <h3>Notification Styles Inspiration</h3>
-                   </a>
+                     <img class="round" src="{{url_for('static', filename='app/images/avatar-2.png')}}" alt="" />
+                     <h3>Sebastian Reyes</h3>
+                  </a>
                 </div>
              </div>
              <!-- /morphsearch-content -->

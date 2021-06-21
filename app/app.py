@@ -220,26 +220,39 @@ def profile():
     args["session"] = dict(session)
     return render_template("app/profile.html", args = args, title="Perfil")
 
-@app.route('/my_proyects')
-def my_proyects():
+@app.route('/my_projects')
+def my_projects():
     args = dict()
     args["session"] = dict(session)
-    return render_template("app/my-proyects.html", args = args, title="Mis proyectos")
+    return render_template("app/my_projects.html", args = args, title="Mis proyectos")
 
-@app.route('/proyect_colaborator')
-def proyect_colaborator():
+@app.route('/projects_collaborator')
+def projects_collaborator():
     args = dict()
     args["session"] = dict(session)
-    return render_template("app/proyect-colaborator.html", args = args, title="Proyectos como colaborador")
+    return render_template("app/projects_collaborator.html", args = args, title="Proyectos como colaborador")
 
-@app.route('/proyect_stakeholder')
-def proyect_stakeholder():
+@app.route('/projects_stakeholder')
+def projects_stakeholder():
     args = dict()
     args["session"] = dict(session)
-    return render_template("app/proyect-stakeholder.html", args = args, title="Proyectos como stakeholder")
+    return render_template("app/projects_stakeholder.html", args = args, title="Proyectos como stakeholder")
 
-@app.route('/delete_proyect')
-def delete_proyect():
+@app.route('/deleted_projects')
+def deleted_projects():
     args = dict()
     args["session"] = dict(session)
-    return render_template("app/delete-proyect.html", args = args, title="Proyectos eliminados")
+    return render_template("app/deleted_projects.html", args = args, title="Proyectos eliminados")
+
+@app.route('/project_1')
+def project_1():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/project_1.html", args = args, title="SIGERE")
+
+
+@app.route('/project_1/versions')
+def versions():
+    args = dict()
+    args["session"] = dict(session)
+    return render_template("app/versions.html", args = args, title="SIGERE")
