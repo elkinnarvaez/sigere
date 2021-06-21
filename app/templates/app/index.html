@@ -81,9 +81,9 @@
                   <div class="card">
                      <div class="user-block-2">
                         {% if args["session"]["RUNNING_LOCAL"] %}
-                           <img class="img-fluid" src="{{url_for('static', filename='app/images/avatar-1.png')}}" alt="user-header">
+                           <img class="img-fluid" src="{{url_for('static', filename='app/images/avatar-1.png')}}" style="width:145px;" alt="user-header">
                         {% else %}
-                           <img class="img-fluid" src="{{args['session']['user']['profile_picture']}}" alt="user-header">
+                           <img class="img-fluid" src="{{args['session']['user']['profile_picture']}}" style="width:145px;" alt="user-header">
                         {% endif %}
                         <h5>{{args["session"]["user"]["names"]}} {{args["session"]["user"]["lastnames"]}} </h5>
                         <h6>{{args["session"]["user"]["job"]}}</h6>
